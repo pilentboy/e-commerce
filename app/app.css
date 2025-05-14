@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Yekan";
+  src: url("/fonts/YekanBakh-Regular.tff") format("tff");
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir.tff") format("tff");
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-yekan: "Yekan";
+}
+
+html,
+body {
+  @apply bg-blue-950 p-2;
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+a,
+button {
+  @apply hover:text-orange-400 duration-200;
+}
+h1 {
+}

@@ -12,7 +12,6 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { useEffect } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -27,11 +26,7 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-// we define the HTML of the APP we want to work on it from here
 export function Layout({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    console.log(document.documentElement.classList);
-  });
   return (
     <html lang="en" data-theme="dark">
       <head>
@@ -41,7 +36,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {/* children is actully the App component which is in this file */}
         {children}
 
         <ScrollRestoration />

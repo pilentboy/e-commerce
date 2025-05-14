@@ -13,6 +13,14 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-yekan: "Yekan";
+  --color-primary: #6da975;
+  --color-secondary: #e4f6e7;
+  --color-auxiliary-1: #ffa700;
+  --color-auxiliary-2: #ffeac2;
+  --color-dark-blue: #081035;
+  --color-gray-1: #747893;
+  --color-gray-2: #ecedf4;
+  --color-gray-3: #f5f6f9;
 }
 
 html,

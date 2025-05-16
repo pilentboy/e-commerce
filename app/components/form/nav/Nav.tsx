@@ -15,7 +15,12 @@ export default function Nav() {
         <div className="flex items-center  justify-center gap-1    shadow-2xl">
           <h1 className="font-bold text-black">VENTURA</h1>
           <Link to={"/"}>
-            <img src="/images/tent.png" alt="logo" className="w-8" />
+            <img
+              src="/images/tent.png"
+              alt="logo"
+              className="w-8"
+              onContextMenu={(e: any) => e.preventDefault()}
+            />
           </Link>
         </div>
         <ul

@@ -4,18 +4,28 @@ export default function Category({
   title,
   image,
   target,
+  size,
+  bg,
 }: {
   title: string;
   image: string;
   target: string;
+  size?: string;
+  bg?: string;
 }) {
   return (
-    <li className="h-full">
+    <li className={`${size ? size : "h-full w-35"}  `}>
       <Link
         to={target}
-        className="flex flex-col items-center justify-center text-black  rounded-3xl  gap-2 h-full w-35 hover:scale-102 duration-200  bg-gradient-to-b bg-gray-2   overflow-hidden"
+        className={`flex flex-col items-center justify-center text-black  rounded-3xl  gap-2 w-full h-full hover:scale-102 duration-200  bg-gradient-to-b ${
+          bg ? bg : "bg-gray-2"
+        }   overflow-hidden`}
       >
-        <img src={image} alt={title} className="w-full h-20  object-contain mix-blend-multiply" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-20  object-contain mix-blend-multiply"
+        />
         {title}
       </Link>
     </li>

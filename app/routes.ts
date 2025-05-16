@@ -8,6 +8,8 @@ export default [
   route("blog", "routes/blog.tsx"),
   route("categories/:category", "routes/categories.tsx"),
   route("products", "routes/products.tsx"),
+  route("product/:product_id", "routes/product.tsx"),
+
   route("/auth/login", "routes/login.tsx"),
   route("/auth/register", "routes/register.tsx"),
 ] satisfies RouteConfig;

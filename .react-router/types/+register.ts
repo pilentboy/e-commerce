@@ -20,6 +20,9 @@ type Params = {
     "category": string;
   };
   "/products": {};
+  "/product/:product_id": {
+    "product_id": string;
+  };
   "/auth/login": {};
   "/auth/register": {};
 };

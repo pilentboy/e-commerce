@@ -33,7 +33,7 @@
 } */
 html,
 body {
-  @apply bg-white font-vazir overflow-x-hidden;
+  @apply bg-gray-3 font-vazir overflow-x-hidden;
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
@@ -45,3 +45,23 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.pulse-anima {
+  animation-name: pulse;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  40% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

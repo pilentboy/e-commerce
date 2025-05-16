@@ -26,7 +26,7 @@ export default function Nav() {
           <CustomLink target="categories/test" title="دسته بندی">
             <>
               <FaAngleDown className="text-primary absolute -left-5 top-1 hidden lg:block hover:" />
-              <ul className="absolute top-5  gap-2 rounded-3xl  -left-60 z-100 min-w-[500px] h-[140px] bg-white  border-t border-primary  hidden lg:group-hover:flex items-center justify-between p-2 ">
+              <ul className="absolute top-5  gap-2 rounded-3xl  -left-60 z-100 w-[320px] flex-wrap min-h-[140px] max-h-[400px] overflow-y-auto  bg-white  border-t border-primary  hidden lg:group-hover:flex items-center justify-between p-2 ">
                 <Category
                   target={`categories/${"flashlights"}`}
                   title="چراغ قوه"

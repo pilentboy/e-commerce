@@ -33,6 +33,9 @@ body {
     color-scheme: dark;
   }
 }
-span{
-  @apply text-black
+ul::-webkit-scrollbar {
+  display: none;
+}
+span {
+  @apply text-black;
 }

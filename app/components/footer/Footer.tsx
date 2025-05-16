@@ -4,7 +4,7 @@ import SocialMedias, { SocialMediaItem } from "./SocialMedias";
 
 export default function Footer() {
   return (
-    <footer className="flex gap-8 md:gap-0 flex-col md:flex-row pb-25 md:pb-2 pt-4 px-10 md:items-center justify-around w-screen min-h-70 bg-gray-2">
+    <footer className="flex float-end gap-8 md:gap-0 flex-col md:flex-row pb-25 md:pb-2 pt-4 px-10 md:items-center justify-around w-screen min-h-70 bg-gray-2">
       <LinkWrapepr firstTitle="لینک های" secondTitle="مهم">
         <>
           <LinkWrapeprItem title="بلاگ" target="blog" />

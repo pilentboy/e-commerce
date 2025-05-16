@@ -11,8 +11,8 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import Footer from "./components/form/footer/Footer";
-import Nav from "./components/form/nav/Nav";
+import Footer from "./components//footer/Footer";
+import Nav from "./components//nav/Nav";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },

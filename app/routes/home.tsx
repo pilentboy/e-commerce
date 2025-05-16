@@ -1,11 +1,9 @@
-import { Link } from "react-router";
 import type { Route } from "./+types/home";
-import { TbArrowBigLeftLines } from "react-icons/tb";
-import Category from "~/components/form/common/Category";
-import Card from "~/components/form/common/Card";
-import Timer from "~/components/form/common/Timer";
-import GoProducts from "~/components/form/common/GoPorducts";
-import SpecialSection from "~/components/form/common/SpecialSection";
+import Category from "~/components//common/Category";
+import Card from "~/components//common/Card";
+import Timer from "~/components//common/Timer";
+import GoProducts from "~/components//common/GoPorducts";
+import SpecialSection from "~/components//common/SpecialSection";
 
 export function meta({}: Route.MetaArgs) {
   return [

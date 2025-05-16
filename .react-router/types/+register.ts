@@ -23,6 +23,7 @@ type Params = {
   "/product/:product_id": {
     "product_id": string;
   };
+  "/best_sales": {};
   "/auth/login": {};
   "/auth/register": {};
 };

@@ -9,6 +9,7 @@ export default [
   route("categories/:category", "routes/categories.tsx"),
   route("products", "routes/products.tsx"),
   route("product/:product_id", "routes/product.tsx"),
+  route("best_sales", "routes/bestSales.tsx"),
 
   route("/auth/login", "routes/login.tsx"),
   route("/auth/register", "routes/register.tsx"),

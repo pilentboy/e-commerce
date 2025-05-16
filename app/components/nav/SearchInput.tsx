@@ -14,6 +14,7 @@ export default function SearchInput({
       <input
         type="text"
         name="search"
+		placeholder="دنبال چی میگردی؟"
         className="text-black w-full h-full outline-none selection:text-primary"
       />
     </Form>

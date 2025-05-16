@@ -1,20 +1,17 @@
 import {
   isRouteErrorResponse,
-  Link,
   Links,
   Meta,
-  NavLink,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "react-router";
 import { AuthProvider } from "./context/AuthContext";
-
 import type { Route } from "./+types/root";
 import "./app.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import CustomLink from "./components/form/nav/CustomLink";
+import Footer from "./components/form/footer/Footer";
 import Nav from "./components/form/nav/Nav";
 
 export const links: Route.LinksFunction = () => [
@@ -53,7 +50,8 @@ export default function App() {
     <AuthProvider>
       <Nav />
       <Outlet />
-      <ToastContainer  />
+      <Footer />
+      <ToastContainer />
     </AuthProvider>
   );
 }

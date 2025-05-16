@@ -1,18 +1,16 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Yekan";
-  src: url("/fonts/YekanBakh-Regular.tff") format("tff");
-}
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
 @font-face {
   font-family: "Vazir";
-  src: url("/fonts/Vazir.tff") format("tff");
+  src: url("/fonts/Vazir.woff") format("woff");
 }
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-yekan: "Yekan";
+  --font-vazir: "Vazir";
   --color-primary: #6da975;
   --color-secondary: #e4f6e7;
   --color-auxiliary-1: #ffa700;
@@ -23,16 +21,15 @@
   --color-gray-3: #f5f6f9;
 }
 
+@layer components {
+}
+/* @utility center-my-div{
+  @apply flex items-center justify-center;
+} */
 html,
 body {
-  @apply bg-blue-950 p-2;
+  @apply bg-white font-vazir;
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
-}
-a,
-button {
-  @apply hover:text-orange-400 duration-200;
-}
-h1 {
 }

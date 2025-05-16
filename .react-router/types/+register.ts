@@ -13,6 +13,13 @@ declare module "react-router" {
 type Params = {
   "/": {};
   "/auth": {};
+  "/about-us": {};
+  "/contact-us": {};
+  "/blog": {};
+  "/categories/:category": {
+    "category": string;
+  };
+  "/products": {};
   "/auth/login": {};
   "/auth/register": {};
 };

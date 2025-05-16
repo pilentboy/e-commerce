@@ -14,6 +14,7 @@ export default function Auth() {
   const { isAuthenticated, setLogout } = useAuth();
 
   return (
+    
     <div className="flex flex-col w-full md:flex-row items-center justify-center gap-4 h-full md:h-52 md:bg-gray-500 absolute top-[50%] left-[50%] p-2 translate-x-[-50%] translate-y-[-50%] ">
       <img src="/auth.png" className="w-[450px] " />
       {isAuthenticated ? (

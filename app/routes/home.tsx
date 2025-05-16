@@ -1,3 +1,5 @@
 export default function Home() {
-  return <h1 className="font-yekan text-2xl text-primary">وسایل سفر</h1>;
+  return (
+    <header className="w-screen h-screen max-h-[900px] bg-gray-2 "></header>
+  );
 }

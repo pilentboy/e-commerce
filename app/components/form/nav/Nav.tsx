@@ -11,7 +11,7 @@ export default function Nav() {
   const [disSeaarchInput, setDisSearchInput] = useState<boolean>(false);
   return (
     <>
-      <nav className="absolute top-5 left-[50%] translate-x-[-50%] w-[95%] sm:w-[85%] h-14 rounded-3xl bg-white flex items-center justify-between shadow px-2 ">
+      <nav className="absolute top-5 left-[50%] translate-x-[-50%] w-[95%] sm:w-[85%] h-14 rounded-3xl z-500 bg-white flex items-center justify-between shadow px-2 ">
         <div className="flex items-center  justify-center gap-1    shadow-2xl">
           <h1 className="font-bold text-black">VENTURA</h1>
           <Link to={"/"}>

@@ -11,8 +11,8 @@ export default function Nav() {
   const [disSeaarchInput, setDisSearchInput] = useState<boolean>(false);
   return (
     <>
-      <nav className="absolute top-5 left-[50%] translate-x-[-50%] w-[95%] sm:w-[85%] h-14 rounded-3xl bg-white flex items-center justify-between  border-amber-200 px-2 ">
-        <div className="flex items-center  justify-center gap-1">
+      <nav className="absolute top-5 left-[50%] translate-x-[-50%] w-[95%] sm:w-[85%] h-14 rounded-3xl bg-white flex items-center justify-between shadow px-2 ">
+        <div className="flex items-center  justify-center gap-1    shadow-2xl">
           <h1 className="font-bold text-black">VENTURA</h1>
           <Link to={"/"}>
             <img src="/images/tent.png" alt="logo" className="w-8" />
@@ -53,7 +53,7 @@ export default function Nav() {
           <CustomLink target="products" title="محصولات" />
           <CustomLink target="blog" title="بلاگ" />
           <CustomLink target="about-us" title="درباره ما" />
-          <CustomLink target="contact-us" title="تماس با ما" />
+          <CustomLink target="contact-us" title="ارتباط با ما" />
         </ul>
         <div className="flex items-center   gap-2">
           <button

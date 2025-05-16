@@ -1,3 +1,15 @@
+import type { Route } from "./+types/products";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "محصولات" },
+    {
+      name: "description",
+      content: "محصولات",
+    },
+  ];
+}
+
 export default function Products() {
   return <span>Products</span>;
 }

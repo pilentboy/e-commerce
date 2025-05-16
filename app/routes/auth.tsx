@@ -3,10 +3,10 @@ import type { Route } from "./+types/auth";
 import { useAuth } from "~/context/AuthContext";
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Auth" },
+    { title: "ورود / ثبت نام" },
     {
       name: "description",
-      content: "authentication page",
+      content: "ورود و یا ثبت نام",
     },
   ];
 }

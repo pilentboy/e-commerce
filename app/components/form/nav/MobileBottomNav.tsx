@@ -8,7 +8,7 @@ export default function MobileBottomNav() {
   return (
     <nav className="fixed bottom-0 left-0 w-full h-16 rounded-3xl  px-4 border-t border-gray-300 bg-white sm:hidden">
       <ul className="w-full h-full  flex items-center justify-around text-black  ">
-        <CustomLink target="products" title="محصولات" icon={<BiCategory />} />
+        <CustomLink target="categories/all" title="محصولات" icon={<BiCategory />} />
         <CustomLink target="blog" title="بلاگ" icon={<GrBlog />} />
 
         <CustomLink
@@ -18,7 +18,7 @@ export default function MobileBottomNav() {
         />
         <CustomLink
           target="contact-us"
-          title="تماس با ما"
+          title="ارتباط با ما"
           icon={<MdOutlineConnectWithoutContact />}
         />
       </ul>

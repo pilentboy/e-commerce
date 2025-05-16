@@ -33,3 +33,6 @@ body {
     color-scheme: dark;
   }
 }
+span{
+  @apply text-black
+}

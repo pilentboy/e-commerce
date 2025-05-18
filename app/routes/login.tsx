@@ -1,4 +1,5 @@
 import {
+  Form,
   useNavigate,
   useNavigation,
   type ActionFunctionArgs,
@@ -6,10 +7,15 @@ import {
 import { useEffect, useState } from "react";
 import type { Route } from "./+types/login";
 import { login } from "~/api";
-
 import { useAuth } from "~/context/AuthContext";
 import { toast } from "react-toastify";
-import LoginForm from "~/components/form/LogInForm";
+import AuthFormContainer from "~/components/form/AuthFormContainer";
+import FormSectionWrapper from "~/components/form/FormSectionWrapper";
+import FormWrapper from "~/components/form/FormWrapper";
+import PasswordInput from "~/components/form/PasswordInput";
+import FormInput from "~/components/form/FormInput";
+import Button from "~/components/common/Button";
+import SimpleLink from "~/components/form/SimpleLink";
 
 export function meta({}: Route.ActionArgs) {
   return [
@@ -56,18 +62,34 @@ export default function Login({ actionData }: Route.ComponentProps) {
   }, [actionData]);
 
   return (
-    <main className="mt-25   mb-5 flex-col md:mt-35 w-full min-h-screen flex  lg:flex-col items-center gap-2 px-5 md:px-40 ">
-      {/* title */}
-      {/* <h1 className="text-primary self-start mt-5 ">فرم ورود</h1> */}
-      {/* form */}
-      <section className="flex flex-col-reverse items-center lg:flex-row">
-        <LoginForm
-          setDisplayPass={setDisplayPass}
-          displayPass={displayPass}
-          isSubmiting={state === "submitting"}
-        />
+    <AuthFormContainer>
+      <FormSectionWrapper customStyle="flex-col-reverse mt-10">
+        <FormWrapper>
+          <Form method="post">
+            <div className="flex justify-between  items-center gap-3 h-60  p-5 rounded-md flex-wrap  ">
+              <FormInput label="نام کاربری" name="username" />
+              <PasswordInput
+                displayPass={displayPass}
+                setDisplayPass={setDisplayPass}
+              />
+
+              <div className="w-full flex  md:justify-end">
+                <SimpleLink
+                  title="بازیابی رمز عبور"
+                  target="/auth/reset_password"
+                />
+                <Button
+                  title="ورود"
+                  type="submit"
+                  disabled={state === "submitting"}
+                />
+              </div>
+            </div>
+          </Form>
+        </FormWrapper>
+
         <img src="/svg/login.svg" alt="register" className="w-100" />
-      </section>
-    </main>
+      </FormSectionWrapper>
+    </AuthFormContainer>
   );
 }

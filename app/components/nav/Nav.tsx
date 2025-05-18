@@ -6,23 +6,14 @@ import Category from "../common/Category";
 import MobileBottomNav from "./MobileBottomNav";
 import { FaAngleDown } from "react-icons/fa6";
 import SearchInput from "./SearchInput";
+import Logo from "../common/Logo";
 
 export default function Nav() {
   const [disSeaarchInput, setDisSearchInput] = useState<boolean>(false);
   return (
     <>
       <nav className="absolute top-5 left-[50%] translate-x-[-50%] w-[95%] sm:w-[85%] h-14 rounded-3xl z-500 bg-white flex items-center justify-between shadow px-2 ">
-        <div className="flex items-center  justify-center gap-1    shadow-2xl">
-          <h1 className="font-bold text-black">VENTURA</h1>
-          <Link to={"/"}>
-            <img
-              src="/images/tent.png"
-              alt="logo"
-              className="w-8"
-              onContextMenu={(e: any) => e.preventDefault()}
-            />
-          </Link>
-        </div>
+        <Logo />
         <ul
           className={`hidden items-center gap-7 lg:gap-9 text-black    font-vazir ${
             disSeaarchInput ? "md:flex lg:hidden" : "md:flex"

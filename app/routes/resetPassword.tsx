@@ -1,4 +1,6 @@
 import {
+  Form,
+  Link,
   useNavigate,
   useNavigation,
   type ActionFunctionArgs,
@@ -6,10 +8,15 @@ import {
 import { useEffect, useState } from "react";
 import type { Route } from "./+types/resetPassword";
 import { login } from "~/api";
-import ResetPasswordForm from "~/components/form/ResetPasswordForm";
 import { useAuth } from "~/context/AuthContext";
 import { toast } from "react-toastify";
 import FormInput from "~/components/form/FormInput";
+import FormSectionWrapper from "~/components/form/FormSectionWrapper";
+import AuthFormContainer from "~/components/form/AuthFormContainer";
+import FormWrapper from "~/components/form/FormWrapper";
+import PasswordInput from "~/components/form/PasswordInput";
+import Button from "~/components/common/Button";
+import SimpleLink from "~/components/form/SimpleLink";
 
 export function meta({}: Route.ActionArgs) {
   return [
@@ -40,7 +47,8 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 export default function ResetPassword({ actionData }: Route.ComponentProps) {
   const [displayPass, setDisplayPass] = useState<boolean>(false);
-  const [resetPasswordInput, setResetPasswordInput] = useState<boolean>(false);
+  const [OTPSent, setOTPSent] = useState<boolean>(false);
+  const [OTPVerified, setOTPVerified] = useState<boolean>(false);
 
   const { state } = useNavigation();
 
@@ -58,19 +66,57 @@ export default function ResetPassword({ actionData }: Route.ComponentProps) {
   }, [actionData]);
 
   return (
-    <main className="mt-25   mb-5 flex-col md:mt-35 w-full min-h-screen flex  lg:flex-col items-center gap-2 px-5 md:px-40 ">
-      <section className="flex flex-col-reverse items-center lg:flex-row">
-        
-        <ResetPasswordForm
-          setDisplayPass={setDisplayPass}
-          displayPass={displayPass}
-          isSubmiting={state === "submitting"}
-          resetPasswordInput={resetPasswordInput}
-          setResetPasswordInput={setResetPasswordInput}
-        />
+    <AuthFormContainer>
+      <FormSectionWrapper customStyle="flex-col-reverse">
+        <>
+          <FormWrapper>
+            <Form method="post">
+              <div className="flex justify-between  items-center gap-3 h-60  p-5 rounded-md flex-wrap  ">
+                {OTPVerified ? (
+                  <>
+                    <PasswordInput
+                      displayPass={displayPass}
+                      setDisplayPass={setDisplayPass}
+                    />
+                    <PasswordInput
+                      displayPass={displayPass}
+                      setDisplayPass={setDisplayPass}
+                      label="تکرار رمز عبور"
+                    />
+                  </>
+                ) : OTPSent ? (
+                  <PasswordInput
+                    label="لطفا کد ارسال شده را وارد نمائید"
+                    name="OTP"
+                    displayPass={displayPass}
+                    setDisplayPass={setDisplayPass}
+                  />
+                ) : (
+                  <FormInput type="phone" name="phone" label="شماره تلفن" />
+                )}
 
-        <img src="/svg/login.svg" alt="register" className="w-100" />
-      </section>
-    </main>
+                <div className="w-full flex  md:justify-end">
+                  <SimpleLink title="ورود" target="/auth/login" />
+                  <Button
+                    title={
+                      OTPVerified
+                        ? "بازیابی"
+                        : OTPSent
+                        ? "تائید"
+                        : "ارسال کد یک بار مصرف"
+                    }
+                    type="button"
+                    action={() => setOTPSent(true)}
+                    disabled={state === "submitting"}
+                  />
+                </div>
+              </div>
+            </Form>
+          </FormWrapper>
+
+          <img src="/svg/login.svg" alt="register" className="w-100" />
+        </>
+      </FormSectionWrapper>
+    </AuthFormContainer>
   );
 }

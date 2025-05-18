@@ -1,6 +1,6 @@
-import { Link } from "react-router";
 import type { Route } from "./+types/auth";
-import { useAuth } from "~/context/AuthContext";
+import AuthLink from "~/components/common/AuthLink";
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "ورود / ثبت نام" },
@@ -11,27 +11,11 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 export default function Auth() {
-  const { isAuthenticated, setLogout } = useAuth();
-
   return (
-    <div className="flex flex-col w-full md:flex-row items-center justify-center  gap-4  h-screen p-2  ">
+    <div className="flex flex-col w-full lg:flex-row items-center justify-center  gap-4  h-screen p-2  ">
       <img src="/svg/auth.svg" className="w-[450px] " />
-      {isAuthenticated ? (
-        <button
-          type="button"
-          className=" w-36 h-12 flex items-center justify-center  bg-gray-800  rounded-md border border-transparent  cursor-pointer  "
-          onClick={setLogout}
-        >
-          Logout
-        </button>
-      ) : (
-        <div className=" w-36 h-12 flex items-center justify-center  bg-gray-800  rounded-md border border-transparent ">
-          <Link to={"/auth/login"}>ورود</Link>
-        </div>
-      )}
-      <div className=" w-36 h-12 flex items-center justify-center  bg-gray-800  rounded-md border border-transparent text-primary">
-        <Link to={"/auth/register"}>ثبت نام</Link>
-      </div>
+      <AuthLink title="ورود" titleColor="text-white" target="/auth/login" />
+      <AuthLink title="ثبت نام" titleColor="text-primary" target="/auth/register" />
     </div>
   );
 }

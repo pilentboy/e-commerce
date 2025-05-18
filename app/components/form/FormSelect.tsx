@@ -24,6 +24,7 @@ export default function FormSelect({
         disabled={disabled || false}
         name={name}
         id={name}
+        required
         className="outline-none rounded-md p-2  w-72  sm:w-full bg-white text-black border border-gray-300"
         onChange={
           setSelectedOption

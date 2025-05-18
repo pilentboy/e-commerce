@@ -1,11 +1,25 @@
-import { redirect, useNavigation, type ActionFunctionArgs } from "react-router";
+import {
+  Form,
+  redirect,
+  useNavigation,
+  type ActionFunctionArgs,
+} from "react-router";
 import { useEffect, useState } from "react";
 import type { Route } from "./+types/register";
 import { register } from "~/api";
 import { FaUser } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
-import RegisterForm from "~/components/form/RegisterForm";
 import { toast } from "react-toastify";
+import AuthFormContainer from "~/components/form/AuthFormContainer";
+import FormSectionWrapper from "~/components/form/FormSectionWrapper";
+import FormInput from "~/components/form/FormInput";
+import FormSelect from "~/components/form/FormSelect";
+import provinces from ".././data/provinces.json";
+import cities from ".././data/cities.json";
+import PasswordInput from "~/components/form/PasswordInput";
+import FormWrapper from "~/components/form/FormWrapper";
+import FormProgressItem from "~/components/form/FormProgressItem";
+import Button from "~/components/common/Button";
 
 export function meta({}: Route.ActionArgs) {
   return [
@@ -20,7 +34,7 @@ export function meta({}: Route.ActionArgs) {
 export async function action({ request }: ActionFunctionArgs) {
   try {
     const formData = await request.formData();
-    console.log(formData)
+    console.log(formData);
     const { error } = await register({
       username: formData.get("username"),
       password: formData.get("password"),
@@ -38,6 +52,8 @@ export async function action({ request }: ActionFunctionArgs) {
 export default function Register({ actionData }: Route.ComponentProps) {
   const [displayPass, setDisplayPass] = useState<boolean>(false);
   const [nextSection, setNextSection] = useState<boolean>(false);
+  const [selectedProvince, setSelectedProvince] = useState<any>();
+  const [provinceCities, setProvinceCities] = useState<any>();
 
   const { state } = useNavigation();
 
@@ -49,61 +65,101 @@ export default function Register({ actionData }: Route.ComponentProps) {
     }
   }, [actionData]);
 
+  useEffect(() => {
+    if (!selectedProvince) return;
+
+    setProvinceCities(
+      cities.find((city: any) => city.name === selectedProvince)
+    );
+  }, [selectedProvince]);
+
   return (
-    <main className="mt-25 mb-10 flex-col md:mt-25 w-full min-h-screen flex  lg:flex-col items-center gap-2 px-5 md:px-40 ">
-      {/* form progress */}
-      <div className="flex items-center gap-10">
-        <div className="flex flex-col items-center gap-2">
-          <FaUser className="text-primary text-[20px]" />
-          <span className="text-primary text-center text-[8px] md:text-[12px]">
-            اطلاعات کاربر
-          </span>
-        </div>
+    <AuthFormContainer>
+      <>
+        {/* register form progress */}
+        {/* <div className="flex items-center gap-10">
+          <FormProgressItem
+            title="اطلاعات کاربر"
+            icon={<FaUser className="text-[20px]" />}
+            iconOpacity="opacity-100"
+          />
 
-        <div className={`flex gap-1  items-center text-primary  `}>
-          <span
-            className={`w-3 h-3 rounded-full bg-primary  ${
-              nextSection ? " opacity-100" : "opacity-70"
-            }`}
-          ></span>
-          <div
-            className={`w-20 px-20 border border-dashed border-primary ${
-              nextSection ? " opacity-100" : "opacity-70"
-            }`}
-          ></div>
-          <span
-            className={`w-3 h-3 rounded-full bg-primary  ${
-              nextSection ? " opacity-100" : "opacity-70"
-            }`}
-          ></span>
-        </div>
+          <div className={`flex gap-1  items-center text-primary  `}>
+            <span
+              className={`w-3 h-3 rounded-full bg-primary  ${
+                nextSection ? " opacity-100" : "opacity-70"
+              }`}
+            ></span>
+            <div
+              className={`w-20 px-20 border border-dashed border-primary ${
+                nextSection ? " opacity-100" : "opacity-70"
+              }`}
+            ></div>
+            <span
+              className={`w-3 h-3 rounded-full bg-primary  ${
+                nextSection ? " opacity-100" : "opacity-70"
+              }`}
+            ></span>
+          </div>
 
-        <div
-          className={`flex flex-col items-center gap-2 text-primary ${
-            nextSection ? " opacity-100" : "opacity-70"
-          }`}
-        >
-          <FaPhoneAlt className=" text-[22px]" />
+          <FormProgressItem
+            title="اطلاعات تماس"
+            icon={<FaPhoneAlt className=" text-[22px]" />}
+            iconOpacity={nextSection ? " opacity-100" : "opacity-70"}
+          />
+        </div> */}
 
-          <span className=" text-center text-[8px] md:text-[12px]">
-            اطلاعات تماس
-          </span>
-        </div>
-      </div>
-      {/* title */}
-      <h1 className="text-primary self-start mt-5 ">فرم ثبت اطلاعات</h1>
-      {/* form */}
-      <section className="flex flex-col items-center lg:flex-row">
-        <RegisterForm
-          setDisplayPass={setDisplayPass}
-          displayPass={displayPass}
-          isSubmiting={state === "submitting"}
-          nextSection={nextSection}
-          setNextSection={setNextSection}
-          submitTitle="ثبت نام"
-        />
-        <img src="/svg/register.svg" alt="register" className="w-110" />
-      </section>
-    </main>
+        {/* title */}
+        <h1 className="text-primary self-start mt-0 ">فرم ثبت اطلاعات</h1>
+        {/* form */}
+
+        <FormSectionWrapper customStyle="flex-col">
+          <FormWrapper>
+            <Form method="post">
+              <div className="flex justify-between items-center gap-3   p-5 rounded-md flex-wrap  ">
+                <FormInput label="نام" name="firstname" />
+                <FormInput label="نام خانوادگی" name="lastname" />
+                <FormSelect
+                  label="استان"
+                  name="province"
+                  data={provinces.provinces}
+                  setSelectedOption={setSelectedProvince}
+                />
+                <FormSelect
+                  label="شهر"
+                  name="city"
+                  disabled={selectedProvince ? false : true}
+                  data={provinceCities?.cities || []}
+                />
+
+                <FormInput label="آدرس" name="address" textArea={true} />
+                <FormInput label="نام کاربری" name="username" />
+                <PasswordInput
+                  displayPass={displayPass}
+                  setDisplayPass={setDisplayPass}
+                />
+                <FormInput
+                  label="ایمیل"
+                  name="email"
+                  type="email"
+                  required={false}
+                />
+                <FormInput label="شماره همراه" name="phone" type="phone" />
+
+                <div className="w-full flex  md:justify-end">
+                  <Button
+                    title="ثبت نام"
+                    type="submit"
+                    disabled={state === "submitting"}
+                  />
+                </div>
+              </div>
+            </Form>
+          </FormWrapper>
+
+          <img src="/svg/register.svg" alt="register" className="w-110" />
+        </FormSectionWrapper>
+      </>
+    </AuthFormContainer>
   );
 }

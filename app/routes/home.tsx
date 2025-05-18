@@ -196,7 +196,6 @@ export default function Home() {
             price="255,000"
             rate="4.2"
           />
-         
         </SpecialSection>
       </main>
     </>

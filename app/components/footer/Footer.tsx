@@ -1,9 +1,9 @@
-import { Link } from "react-router";
 import LinkWrapepr, { LinkWrapeprItem } from "./LinkWrapepr";
 import SocialMedias, { SocialMediaItem } from "./SocialMedias";
 import { FaTelegram } from "react-icons/fa6";
-import { FaInstagram,FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io5";
+import Logo from "../common/Logo";
 
 export default function Footer() {
   return (
@@ -17,17 +17,8 @@ export default function Footer() {
         </>
       </LinkWrapepr>
       <section className="flex flex-col items-center gap-4">
-        <div className="flex items-center  justify-center gap-1    shadow-2xl">
-          <h1 className="font-bold text-black">VENTURA</h1>
-          <Link to={"/"}>
-            <img
-              src="/images/tent.png"
-              alt="logo"
-              className="w-8"
-              onContextMenu={(e: any) => e.preventDefault()}
-            />
-          </Link>
-        </div>
+        <Logo />
+
         <p className="text-black selection:text-primary selection:bg-black">
           "تجهیزات حرفه ای، ماجراجویی های فراموش نشدنی!"
         </p>
@@ -44,7 +35,7 @@ export default function Footer() {
       <LinkWrapepr firstTitle="دسته بندی" secondTitle="محصولات">
         <>
           <LinkWrapeprItem title="چادر" target="" />
-		  <LinkWrapeprItem title="چراغ قوه" target="" />
+          <LinkWrapeprItem title="چراغ قوه" target="" />
           <LinkWrapeprItem title="فلاسک" target="" />
           <LinkWrapeprItem title="پتو" target="" />
         </>

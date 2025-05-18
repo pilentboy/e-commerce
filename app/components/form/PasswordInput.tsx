@@ -4,11 +4,16 @@ export default function PasswordInput({
   displayPass,
   setDisplayPass,
   label,
+  name,
 }: {
   displayPass: boolean;
   setDisplayPass: any;
-  label?: "تکرار رمز عبور";
+  label?: string;
+  name?: string;
 }) {
+  const iconStyle =
+    "absolute w-5 h-5 rounded-full right-2 top-[55%] hover:scale-105  duration-200 cursor-pointer z-40 text-gray-400 ";
+  const changeDisplayStatus = () => setDisplayPass((pre: boolean) => !pre);
   return (
     <div className="  w-68 flex flex-col gap-1 relative">
       <label htmlFor="password" className="mr-1 text-gray-500">
@@ -16,21 +21,15 @@ export default function PasswordInput({
       </label>
       <input
         type={displayPass ? "text" : "password"}
-        name="password"
+        name={name || "password"}
         id="password"
-        className="outline-none rounded-md   w-72  sm:w-full bg-white text-black border border-gray-300   p-2 "
+        className="outline-none rounded-md  text-left  w-72  sm:w-full bg-white text-black border border-gray-300   p-2 "
         required
       />
       {displayPass ? (
-        <FaRegEye
-          className="absolute w-5 h-5 rounded-full left-2 top-[55%] hover:scale-105  duration-200 cursor-pointer z-40 text-gray-400"
-          onClick={() => setDisplayPass((pre: boolean) => !pre)}
-        />
+        <FaRegEye className={iconStyle} onClick={changeDisplayStatus} />
       ) : (
-        <FaRegEyeSlash
-          className="absolute w-5 h-5 rounded-full left-2 top-[55%] hover:scale-105  duration-200 cursor-pointer z-40 text-gray-400"
-          onClick={() => setDisplayPass((pre: boolean) => !pre)}
-        />
+        <FaRegEyeSlash className={iconStyle} onClick={changeDisplayStatus} />
       )}
     </div>
   );

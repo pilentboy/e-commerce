@@ -101,7 +101,7 @@ export default function Home() {
 
         {/* offer */}
         <section className="mb-30 mx-auto flex flex-col gap-4 md:flex-row   items-center justify-around px-5 py-4 w-full lg:w-250 min-h-85 rounded-3xl relative  bg-blue-100">
-          <div className="w-45 lg:w-55 h-70 rounded-4xl flex flex-col items-center relative overflow-hidden justify-around py-2 px-3   bg-primary ">
+          <div className="w-3/4 md:w-55 h-70 rounded-4xl flex flex-col items-center relative overflow-hidden justify-around py-2 px-3   bg-primary ">
             <h1 className="font-bold text-3xl">
               محصولات <br /> تخفیف دار
             </h1>

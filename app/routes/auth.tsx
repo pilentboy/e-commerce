@@ -15,7 +15,7 @@ export default function Auth() {
 
   return (
     <div className="flex flex-col w-full md:flex-row items-center justify-center  gap-4  h-screen p-2  ">
-      <img src="/auth.png" className="w-[450px] " />
+      <img src="/svg/auth.svg" className="w-[450px] " />
       {isAuthenticated ? (
         <button
           type="button"
@@ -26,11 +26,11 @@ export default function Auth() {
         </button>
       ) : (
         <div className=" w-36 h-12 flex items-center justify-center  bg-gray-800  rounded-md border border-transparent ">
-          <Link to={"/auth/login"}>Login</Link>
+          <Link to={"/auth/login"}>ورود</Link>
         </div>
       )}
-      <div className=" w-36 h-12 flex items-center justify-center  bg-gray-800  rounded-md border border-transparent text-orange-400 sm:text-white">
-        <Link to={"/auth/register"}>Register</Link>
+      <div className=" w-36 h-12 flex items-center justify-center  bg-gray-800  rounded-md border border-transparent text-primary">
+        <Link to={"/auth/register"}>ثبت نام</Link>
       </div>
     </div>
   );

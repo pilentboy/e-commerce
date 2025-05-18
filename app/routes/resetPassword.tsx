@@ -4,19 +4,19 @@ import {
   type ActionFunctionArgs,
 } from "react-router";
 import { useEffect, useState } from "react";
-import type { Route } from "./+types/login";
+import type { Route } from "./+types/resetPassword";
 import { login } from "~/api";
-
+import ResetPasswordForm from "~/components/form/ResetPasswordForm";
 import { useAuth } from "~/context/AuthContext";
 import { toast } from "react-toastify";
-import LoginForm from "~/components/form/LogInForm";
+import FormInput from "~/components/form/FormInput";
 
 export function meta({}: Route.ActionArgs) {
   return [
-    { title: "ورود" },
+    { title: "بازیابی رمز عبور" },
     {
       name: "description",
-      content: "ورود",
+      content: "بازیابی رمز عبور",
     },
   ];
 }
@@ -38,8 +38,10 @@ export async function action({ request }: ActionFunctionArgs) {
     return { error: "an unknown error occurred" };
   }
 }
-export default function Login({ actionData }: Route.ComponentProps) {
+export default function ResetPassword({ actionData }: Route.ComponentProps) {
   const [displayPass, setDisplayPass] = useState<boolean>(false);
+  const [resetPasswordInput, setResetPasswordInput] = useState<boolean>(false);
+
   const { state } = useNavigation();
 
   const navigate = useNavigate();
@@ -57,15 +59,16 @@ export default function Login({ actionData }: Route.ComponentProps) {
 
   return (
     <main className="mt-25   mb-5 flex-col md:mt-35 w-full min-h-screen flex  lg:flex-col items-center gap-2 px-5 md:px-40 ">
-      {/* title */}
-      {/* <h1 className="text-primary self-start mt-5 ">فرم ورود</h1> */}
-      {/* form */}
       <section className="flex flex-col-reverse items-center lg:flex-row">
-        <LoginForm
+        
+        <ResetPasswordForm
           setDisplayPass={setDisplayPass}
           displayPass={displayPass}
           isSubmiting={state === "submitting"}
+          resetPasswordInput={resetPasswordInput}
+          setResetPasswordInput={setResetPasswordInput}
         />
+
         <img src="/svg/login.svg" alt="register" className="w-100" />
       </section>
     </main>

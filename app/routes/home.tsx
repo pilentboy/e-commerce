@@ -196,35 +196,7 @@ export default function Home() {
             price="255,000"
             rate="4.2"
           />
-          <Card
-            title="فلاسک"
-            image="/images/chair.png"
-            target={"product/1"}
-            price="255,000"
-            rate="4.2"
-          />
-          <Card
-            title="فلاسک"
-            image="/images/classic-sunglasses-white-background-minimalist-eyewear-modern-style_431161-69272 1.png"
-            target={"product/1"}
-            price="255,000"
-            rate="4.2"
-          />
-          <Card
-            title="فلاسک"
-            image="/images/black-flashlight-isolated-white_1218049-6825 1.png"
-            target={"product/1"}
-            price="255,000"
-            rate="4.2"
-          />
-
-          <Card
-            title="فلاسک"
-            image="/images/chair.png"
-            target={"product/1"}
-            price="255,000"
-            rate="4.2"
-          />
+         
         </SpecialSection>
       </main>
     </>

@@ -26,4 +26,5 @@ type Params = {
   "/best_sales": {};
   "/auth/login": {};
   "/auth/register": {};
+  "/auth/reset_password": {};
 };

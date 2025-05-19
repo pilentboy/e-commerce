@@ -13,7 +13,7 @@ export default function CustomLink({
 }) {
   return (
     <li
-      className={`relative hover:text-primary duration-200  py-2 sm:text-[12px] xl:text-[15px] ${
+      className={`relative hover:text-primary duration-200  py-2 sm:text-[12px] xl:text-[16px] ${
         children && "group"
       }`}
     >

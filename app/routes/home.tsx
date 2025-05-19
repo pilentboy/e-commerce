@@ -90,7 +90,7 @@ export default function Home() {
 
         {/* text */}
         <section className="mx-auto w-3/5 text-center mt-25 mb-10">
-          <p className="text-black">
+          <p className="text-black text-[17px] md:text-[15px] selection:text-primary">
             "تجهیزات حرفه ای، ماجوراجویی های فراموش نشدنی!" باور داریم که هر سفر
             به طبیعت می تونه به تجربه منحصر به فرد و خاطره انگیز تبدیل بشه. به
             همین دلیل بهترین و با کیفیت ترین لوازم کمپینگ و سفر رو برای شما
@@ -144,7 +144,7 @@ export default function Home() {
               jack wolfskin
               <div className="absolute w-full h-7 left-0 -bottom-1 bg-primary opacity-25 rounded-full"></div>
             </div>
-            <p className="text-black mt-5  mb-2 md:mb-0">
+            <p className="text-black mt-5 text-[17px]  mb-2 md:mb-0">
               "تجهیزات حرفه ای، ماجوراجویی های فراموش نشدنی!" باور داریم که هر
               سفر به طبیعت می تونه به تجربه منحصر به فرد و خاطره انگیز تبدیل به
               نگرانی به دل طبیعت بزنید.

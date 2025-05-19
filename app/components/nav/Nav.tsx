@@ -15,7 +15,7 @@ export default function Nav() {
       <nav className="absolute top-5 left-[50%] translate-x-[-50%] w-[95%] sm:w-[85%] h-14 rounded-3xl z-500 bg-white flex items-center justify-between shadow px-2 ">
         <Logo />
         <ul
-          className={`hidden items-center gap-7 lg:gap-9 text-black    font-vazir ${
+          className={`hidden items-center gap-7 lg:gap-9 text-black    font-rokh ${
             disSeaarchInput ? "md:flex lg:hidden" : "md:flex"
           }`}
         >

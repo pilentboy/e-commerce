@@ -10,12 +10,17 @@
   font-family: "Vazir-Thin";
   src: url("/fonts/Vazir-Thin.woff") format("woff");
 }
+@font-face {
+  font-family: "Rokh";
+  src: url("/fonts/RokhFaNum-Medium.woff") format("woff");
+}
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-vazir: "Vazir";
   --font-vazir-thin: "Vazir-Thin";
+  --font-rokh: "Rokh";
   --color-primary: #6da975;
   --color-secondary: #e4f6e7;
   --color-auxiliary-1: #ffa700;
@@ -33,7 +38,7 @@
 } */
 html,
 body {
-  @apply bg-gray-3 font-vazir overflow-x-hidden;
+  @apply bg-gray-3 font-rokh overflow-x-hidden;
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
@@ -82,17 +87,4 @@ body::-webkit-scrollbar {
   );
 }
 
-@keyframes pulse {
-  40% {
-    transform: scale(1.1);
-  }
-  70% {
-    transform: scale(1);
-  }
-  90% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+

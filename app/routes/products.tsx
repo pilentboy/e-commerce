@@ -1,3 +1,4 @@
+import MainContainer from "~/components/common/MainContainer";
 import type { Route } from "./+types/products";
 
 export function meta({}: Route.MetaArgs) {
@@ -11,5 +12,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Products() {
-  return <span>Products</span>;
+  return (
+    <MainContainer>
+      <span>Blog</span>
+    </MainContainer>
+  );
 }

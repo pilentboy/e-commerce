@@ -16,8 +16,10 @@ export default function FormInput({
       ? "text-left"
       : "text-right";
 
-  const inputStyle = `outline-none rounded-md p-2  flex-wrap  bg-white text-black border border-gray-300 ${direction} w-72  sm:w-full`;
-  const wrapperStyle = `flex flex-col gap-1 ${textArea ? "w-full" : " w-68"}`;
+  const inputStyle = `outline-none rounded-md p-2  flex-wrap  bg-white text-black border border-gray-300 ${direction} w-72  sm:w-full focus:border-dark-blue duration-200`;
+  const wrapperStyle = `flex flex-col gap-1 ${
+    textArea ? "w-68 md:w-full" : " w-68"
+  }`;
 
   return (
     <div className={wrapperStyle}>

@@ -66,14 +66,14 @@ export default function Login({ actionData }: Route.ComponentProps) {
       <FormSectionWrapper customStyle="flex-col-reverse mt-10">
         <FormWrapper>
           <Form method="post">
-            <div className="flex justify-between  items-center gap-3 h-60  p-5 rounded-md flex-wrap  ">
+            <div className="flex justify-center items-center gap-3 h-60  p-5 rounded-md flex-wrap  md:justify-start   ">
               <FormInput label="نام کاربری" name="username" />
               <PasswordInput
                 displayPass={displayPass}
                 setDisplayPass={setDisplayPass}
               />
 
-              <div className="w-full flex  md:justify-end">
+              <div className="w-full flex 0  md:justify-end">
                 <SimpleLink
                   title="بازیابی رمز عبور"
                   target="/auth/reset_password"

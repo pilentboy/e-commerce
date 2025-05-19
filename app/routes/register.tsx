@@ -116,7 +116,7 @@ export default function Register({ actionData }: Route.ComponentProps) {
         <FormSectionWrapper customStyle="flex-col">
           <FormWrapper>
             <Form method="post">
-              <div className="flex justify-between items-center gap-3   p-5 rounded-md flex-wrap  ">
+              <div className="flex justify-center items-center gap-3   p-5 rounded-md flex-wrap  ">
                 <FormInput label="نام" name="firstname" />
                 <FormInput label="نام خانوادگی" name="lastname" />
                 <FormSelect
@@ -146,7 +146,7 @@ export default function Register({ actionData }: Route.ComponentProps) {
                 />
                 <FormInput label="شماره همراه" name="phone" type="phone" />
 
-                <div className="w-full flex  md:justify-end">
+                <div className="w-full flex justify-center  md:justify-end">
                   <Button
                     title="ثبت نام"
                     type="submit"
